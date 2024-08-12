@@ -1,0 +1,107 @@
+/* Theme 2. THEME.WHITE */
+.atira-modal-overaly {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: #00000066;
+}
+
+.atira-modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.atira-modal-button {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.atira-modal-button:hover,
+.atira-modal-button:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.atira-theme-body {
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding: 0.3rem;
+  max-width: 25rem;
+}
+
+.atira-theme-title {
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.atira-theme-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  height: 100%;
+}
+
+.atira-theme-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.atira-theme-input {
+  height: 2.7rem;
+  border-radius: 0.4rem;
+  background-color: #edecec;
+  border: 0;
+  padding: 0 0.5rem;
+  outline: none;
+  transition: box-shadow 0.2s;
+  box-shadow: 0 0 0 2px transparent;
+}
+
+.atira-theme-input::placeholder {
+  font-weight: 570;
+}
+
+.atira-theme-input:focus {
+  box-shadow: 0 0 0 2.5px #000000cc;
+}
+
+.atira-theme-label {
+  font-weight: 580;
+  font-size: 1.2rem;
+}
+
+.atira-theme-send-button {
+  width: 7rem;
+  height: 2.7rem;
+  background-color: #000;
+  color: #fff;
+  border-radius: 0.4rem;
+  border: 0;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.atira-theme-send-button:hover {
+  background-color: #000000bd;
+}

@@ -1,0 +1,33 @@
+@font-face {
+  font-family: 'Cairo';
+  src: url('/public/fonts/Cairo-font.ttf');
+}
+
+body {
+  font-family: 'Cairo', 'Open Sans', sans-serif;
+  width: 100vw;
+  height: 100vh;
+}
+.user-pfp {
+  width: 7rem;
+  height: 7rem;
+}
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  filter: brightness(0) saturate(100%) invert(0);
+  transition: all 0.3s;
+}
+.icon-wrpr:hover .icon {
+  filter: brightness(0) saturate(100%) invert(1);
+}
+.nav-link:not(.active) {
+  color: #212529;
+}
+.nav-link:not(.active):hover {
+  border-bottom: #212529 2px solid;
+}
+
+main {
+  min-height: 65vh;
+}
