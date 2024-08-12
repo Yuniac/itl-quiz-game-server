@@ -7,7 +7,7 @@ import morgan from 'morgan';
 const app = express();
 const port = process.env.PORT || 5000;
 
-mongoose.connect('mongodb://localhost:27017/itl').then((x) => {
+mongoose.connect('mongodb://127.0.0.1:27017/itl').then((x) => {
   console.log('Connected to MongoDB:', x.connection.name);
 });
 
