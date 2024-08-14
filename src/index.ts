@@ -7,7 +7,7 @@ import mongoose from 'mongoose';
 import morgan from 'morgan';
 
 import UserRouter from './routes/user';
-import CardRouter from './model/card';
+import CardRouter from './routes/card';
 import { ErrorMiddleware } from './middleware/ErrorMiddleware';
 
 const app = express();

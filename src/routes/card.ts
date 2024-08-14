@@ -1,9 +1,8 @@
 import express from 'express';
 import { AdminMiddleware } from '../middleware/AdminMiddleware';
 import { AuthMiddleWare } from '../middleware/AuthMiddleware';
-import { readFile } from 'fs';
 
-import { Card, CardModel } from './card.model';
+import { Card, CardModel } from '../model/card.model';
 
 const CardRouter = express.Router();
 
@@ -31,6 +30,17 @@ CardRouter.post(
     }
   },
 );
+
+CardRouter.get('/card', AuthMiddleWare, async (req, res, next) => {
+  try {
+    const cards = await CardModel.find();
+
+    res.send(cards);
+  } catch (error: any) {
+    console.error('Error:', error);
+    next(error);
+  }
+});
 
 // CardRouter.post('/card/populate', (req, res, next) => {
 //   try {
