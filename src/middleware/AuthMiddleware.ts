@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import { JWT } from '../JWT';
-import { UserModel } from '../model/user.model';
+import { User, UserModel } from '../model/user.model';
 
 export const AuthMiddleWare = async (
   req: Request,
@@ -43,6 +43,7 @@ export const AuthMiddleWare = async (
       });
     }
 
+    (req as Request & { context: { user: User } }).context = { user };
     next();
   } catch (e: any) {
     return next({

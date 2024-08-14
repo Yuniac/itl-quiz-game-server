@@ -1,8 +1,10 @@
 import axios from 'axios';
+import { Request } from 'express';
 import express from 'express';
 
 import { JWT } from '../JWT';
-import { UserModel } from '../model/user.model';
+import { AuthMiddleWare } from '../middleware/AuthMiddleware';
+import { User, UserModel } from '../model/user.model';
 
 const google_auth_token_url = 'https://oauth2.googleapis.com/token';
 const google_auth_get_profile_url =
@@ -89,5 +91,24 @@ UserRouter.post('/auth/google', async (req, res, next) => {
     next(e);
   }
 });
+
+UserRouter.post(
+  '/auth/refresh-token',
+  AuthMiddleWare,
+  async (req, res, next) => {
+    const user = (req as Request & { context: { user: User } }).context.user;
+
+    try {
+      const newToken = JWT.sign(user._id.toHexString());
+
+      res.send({ token: newToken });
+    } catch (e) {
+      next({
+        message: `Something went wrong while refreshing JWT token for user: ${user._id}`,
+        statusCode: 500,
+      });
+    }
+  },
+);
 
 export default UserRouter;
