@@ -7,6 +7,8 @@ import mongoose from 'mongoose';
 import morgan from 'morgan';
 
 import UserRouter from './routes/user';
+import CardRouter from './routes/card';
+import { ErrorMiddleware } from './middleware/ErrorMiddleware';
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -41,10 +43,9 @@ app.use(helmet());
 
 // Routes
 app.use('/api', UserRouter);
+app.use('/api', CardRouter);
 
-app.use('/', (req, res) => {
-  res.send('Welcome to ITL API');
-});
+app.use(ErrorMiddleware);
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
