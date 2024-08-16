@@ -3,6 +3,7 @@ import mongoose, { Schema, Types } from 'mongoose';
 export interface User extends mongoose.Document {
   _id: Types.ObjectId;
   name: string;
+  verified: boolean;
   email?: string;
   picture?: string;
   admin?: boolean;
@@ -27,6 +28,11 @@ const UserSchema = new Schema(
       type: String,
     },
     admin: {
+      required: false,
+      type: Boolean,
+      default: false,
+    },
+    verified: {
       required: false,
       type: Boolean,
       default: false,
